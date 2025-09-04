@@ -62,9 +62,9 @@
 		
 		\item \textbf{Demosaicing}\\
 		Demosaicing is a process of interpolating the red, green and blue channels from
-		the raw pixel image. Here we will try to ll in the missing pixel values from
+		the raw pixel image. Here we will try to fill in the missing pixel values from
 		the sampled raw images through interpolation. \\
-		 The CFA for \texttt{RawImage1.mat} is rggb whose mask is provided in the le
+		 The CFA for \texttt{RawImage1.mat} is rggb whose mask is provided in the file
 		\texttt{bayer1.mat}. In\texttt{ bayer1.mat} a value of 1 at a particular pixel means that only
 		red value is sampled at that pixel. Similarly values of 2 and 3 mean that
 		only green and blue values are sampled at those pixels. We use bilinear and
@@ -72,7 +72,7 @@
 		those pixels whose values are missing in the grid. We use the MATLAB built-in
 		function \texttt{griddata} for an efficient implementation.
 		\begin{enumerate}
-			\item Performing bilinear interpolation of the missing pixels in each color channel	R, G and B to reconstruct a full color image from RawImage1 with the CFA provided in \texttt{bayer1.mat} and figure-\ref{fig:problem1_linear} shows the different color channel after interpolation. Figure~\ref{fig:problem1_RGB_linear} shows the RGB reconstruction with linear interpolation
+			\item Performing bilinear interpolation of the missing pixels in each color channel	R, G and B to reconstruct a full color image from \texttt{RawImage1} with the CFA provided in \texttt{bayer1.mat} and Figure \ref{fig:problem1_linear} shows the different color channel after interpolation. Figure \ref{fig:problem1_RGB_linear} shows the RGB reconstruction with linear interpolation
 			\begin{figure}[H]
 				\centering
 				\resizebox{0.8\linewidth}{!}{
@@ -108,7 +108,7 @@
 				\label{fig:problem1_linear}
 			\end{figure}
 			
-			\item  Performing bicubic interpolation of the missing pixels in each color channel	R, G and B to reconstruct a full color image from RawImage1 with the CFA provided in \texttt{bayer1.mat} and figure-\ref{fig:problem1_cubic} shows the different color channel after interpolation. Figure~\ref{fig:problem1_RGB_cubic} shows the RGB reconstruction with cubic interpolation.\\
+			\item  Performing bicubic interpolation of the missing pixels in each color channel	R, G and B to reconstruct a full color image from \texttt{RawImage1} with the CFA provided in \texttt{bayer1.mat} and Figure \ref{fig:problem1_cubic} shows the different color channel after interpolation. Figure~\ref{fig:problem1_RGB_cubic} shows the RGB reconstruction with cubic interpolation.\\
 			\textbf{Comparision with Bilinear Interpolation:} When comparing the results of bicubic interpolation and bilinear interpolation, the images appear almost identical at first glance. However, on closer inspection by zooming in, bicubic interpolation produces sharper edges with less blurriness than bilinear interpolation. In general, unless we specifically look for these differences at higher magnification, it is difficult to distinguish between the two images.
 			
 			\begin{figure}[H]
@@ -207,7 +207,7 @@
 				\caption{Reconstructed \texttt{kodim19.mat} with cubic interpolation.}
 				\label{fig:problem1_part2}
 			\end{figure}
-			\item Now taking the Figure \ref{fig:problem1_part2_cubic} converting to YCrCb and applying the median filter to the chrominance channels and then converting back it to RGB channel I get Figure~\ref{fig:problem_part2}
+			\item Now taking the Figure \ref{fig:problem1_part2_cubic} converting to YCrCb and applying the median filter to the chrominance channels and then converting back it to RGB channel. We get Figure \ref{fig:problem_part2}
 			\begin{figure}[H]
 				\centering
 				\resizebox{0.8\linewidth}{!}{
@@ -247,10 +247,10 @@
 		
 		The white balancing results are summarized as follows:  
 		\begin{enumerate}
-			\item Gray-world assumption: The mean value of each channel is computed, and scaling factors are applied to shift the average color toward gray. Figure~\ref{fig:RawImage1_WB_2} shows the result for \texttt{RawImage1}, while Figures~\ref{fig:RawImage2_WB_2} and \ref{fig:RawImage3_WB_2} present the corresponding results for \texttt{RawImage2} and \texttt{RawImage3}.
-			\item \textbf{Specular highlight assumption:} The brightest pixel is assumed to be white. Using the specified pixel coordinates $(830, 814)$ for \texttt{RawImage1}, $(1165, 280)$ for \texttt{RawImage2}, and $(175, 675)$ for \texttt{RawImage3}, the results are shown in Figure~\ref{fig:RawImage1_WB_3}, Figure~\ref{fig:RawImage2_WB_3}, and Figure~\ref{fig:RawImage3_WB_3}.
-			\item \textbf{Neutral region assumption:} A selected region is assumed neutral. The chosen pixel coordinates are $(2000, 435)$ for \texttt{RawImage1}, $(445, 715)$ for \texttt{RawImage2}, and $(1550, 565)$ for \texttt{RawImage3}. The results are presented in Figure~\ref{fig:RawImage1_WB_4}, Figure~\ref{fig:RawImage2_WB_4}, and Figure~\ref{fig:RawImage3_WB_4}.
-			\item \textbf{Tone mapping:} After white balancing, tone mapping is performed on all three images. The results are shown in Figure~\ref{fig:RawImage1_tone}, Figure~\ref{fig:RawImage2_tone}, and Figure~\ref{fig:RawImage3_tone}.
+			\item \textbf{Gray-world assumption:} The mean value of each channel is computed, and scaling factors are applied to shift the average color toward gray. Figure \ref{fig:RawImage1_WB_2} shows the result for \texttt{RawImage1}, while Figure \ref{fig:RawImage2_WB_2} and Figure \ref{fig:RawImage3_WB_2} present the corresponding results for \texttt{RawImage2} and \texttt{RawImage3}.
+			\item \textbf{Specular highlight assumption:} The brightest pixel is assumed to be white. Using the specified pixel coordinates $(830, 814)$ for \texttt{RawImage1}, $(1165, 280)$ for \texttt{RawImage2}, and $(175, 675)$ for \texttt{RawImage3}, the results are shown in Figure \ref{fig:RawImage1_WB_3}, Figure \ref{fig:RawImage2_WB_3}, and Figure \ref{fig:RawImage3_WB_3}.
+			\item \textbf{Neutral region assumption:} A selected region is assumed neutral. The chosen pixel coordinates are $(2000, 435)$ for \texttt{RawImage1}, $(445, 715)$ for \texttt{RawImage2}, and $(1550, 565)$ for \texttt{RawImage3}. The results are presented in Figure \ref{fig:RawImage1_WB_4}, Figure \ref{fig:RawImage2_WB_4}, and Figure \ref{fig:RawImage3_WB_4}.
+			\item \textbf{Tone mapping:} After white balancing, tone mapping is performed on all three images. The results are shown in Figure \ref{fig:RawImage1_tone}, Figure \ref{fig:RawImage2_tone}, and Figure \ref{fig:RawImage3_tone}.
 		\end{enumerate}
 			\begin{figure}[h]
 				\centering
@@ -595,20 +595,33 @@
 				\label{fig:RawImage3_tone}
 			\end{figure}
 		\item \textbf{Image Denoising}\\
-			In this part we use bilateral filtering operation for denoising. The bilateral lter is con
-			trolled by two parameters, $\sigma_s $and $\sigma_r $ which control the spatial weighing and
-			alignment of image intensities respectively. Ideally we would like to locally
-			estimate the noise and adjust both the parameters accordingly but given the
-			cost here we would go with single set of parameters. To estimate the noise we
-			will choose a constant region in the image and calculate the standard deviation  along all the three channels R, G and B in that region. The parameters for the
-			filter are window size $W=11,\sigma_s=2.5, \sigma_r=1.95\times\sigma_n$, where $\sigma_n$ is noise  standard deviation in
-			the corresponding colour channel. The regions chosen are as follows:
-			\begin{enumerate}
-				\item \texttt{RawImage1}: $(100, 100)\text{ to }(160, 160)$
-				\item \texttt{RawImage2}: $(705, 924)\text{ to }(765, 984)$
-				\item \texttt{RawImage3}: $(50, 400)\text{ to }(110, 460)$
-			\end{enumerate}
-			The $\sigma_r$ values for the R, G, and B channels are $0.068$, $0.0614$, and $0.0774$ for \texttt{RawImage1}; $0.0682$, $0.0510$, and $0.0729$ for \texttt{RawImage2}; finally $0.0694$, $0.0694$, and $0.1202$ for \texttt{RawImage3}.
+		In this section, we employ bilateral filtering for image denoising. The bilateral filter is governed by two parameters, $\sigma_s$ and $\sigma_r$, which control the spatial weighting and the intensity alignment, respectively.  
+		Ideally, one would locally estimate the noise level and adapt these parameters accordingly; however, due to computational cost, we use a fixed set of parameters.  
+		
+		To estimate the noise, a constant region is selected from each image, and the standard deviation is computed across the three channels (R, G, and B) within that region. The chosen filter parameters are:  
+		\[
+		W = 11, \quad \sigma_s = 2.5, \quad \sigma_r = 1.95 \times \sigma_n,
+		\]
+		where $\sigma_n$ denotes the noise standard deviation for the corresponding color channel.  
+		
+		The selected regions are:  
+		\begin{enumerate}
+			\item \texttt{RawImage1}: $(100, 100) \text{ to } (160, 160)$
+			\item \texttt{RawImage2}: $(705, 924) \text{ to } (765, 984)$
+			\item \texttt{RawImage3}: $(50, 400) \text{ to } (110, 460)$
+		\end{enumerate}
+		
+		These regions are shown with red box in Figures~\ref{fig:RawImage1_denoising_1}, \ref{fig:RawImage2_denoising_1}, and \ref{fig:RawImage3_denoising_1}, corresponding to \texttt{RawImage1}, \texttt{RawImage2}, and \texttt{RawImage3}, respectively.  
+		
+		The estimated values of $\sigma_r$ for the R, G, and B channels are as follows:  
+		\begin{itemize}
+			\item \texttt{RawImage1}: $0.068$, $0.0614$, $0.0774$
+			\item \texttt{RawImage2}: $0.0682$, $0.0510$, $0.0729$
+			\item \texttt{RawImage3}: $0.0694$, $0.0694$, $0.1202$
+		\end{itemize}
+		
+		The denoised results for \texttt{RawImage1}, \texttt{RawImage2}, and \texttt{RawImage3} are shown in Figures~\ref{fig:RawImage1_denoising_2}, \ref{fig:RawImage2_denoising_2}, and \ref{fig:RawImage3_denoising_2}, respectively.
+		
 			\begin{figure}[H]
 				\centering
 				\resizebox{0.8\linewidth}{!}{
@@ -635,7 +648,7 @@
 							\centering
 							\includegraphics[width=\linewidth]{../output/RawImage2_after_denoising.pdf}
 							\caption{\texttt{RawImage2}-after Denoising}
-							\label{fig:RawImage2_denosing_2}
+							\label{fig:RawImage2_denoising_2}
 						\end{subfigure}\\
 						\begin{subfigure}[h]{0.45\linewidth}
 						\centering
@@ -647,7 +660,7 @@
 						\centering
 						\includegraphics[width=\linewidth]{../output/RawImage3_after_denoising.pdf}
 						\caption{\texttt{RawImage3}-after Denoising}
-						\label{fig:RawImage3_denosing_2}
+						\label{fig:RawImage3_denoising_2}
 						\end{subfigure}
 					\end{tabular}
 				}
