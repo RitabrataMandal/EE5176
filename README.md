@@ -3,7 +3,7 @@
 [![MATLAB](https://img.shields.io/badge/MATLAB-R2020a+-orange.svg)](https://www.mathworks.com/products/matlab.html)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 
-This repository contains course materials for **EE5176 - Image Processing and Computer Vision**, including tutorials, assignments, and practical exercises covering fundamental concepts in digital image processing, computer vision, and related mathematical foundations.
+This repository contains course materials for **EE5176 - Computational Photography**, including tutorials, assignments, and practical exercises covering fundamental concepts in digital image processing, computer vision, and related mathematical foundations.
 
 ## 📚 Course Overview
 
